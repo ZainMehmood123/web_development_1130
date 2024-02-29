@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hello {
+        color: red;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgb(13, 78, 98)">
+    <h3 style="color: rgb(238, 249, 245)">Days Calulator In a Month</h3>
+    <button
+      style="height: 50px; width: 100px; background-color: teal; color: white"
+      onclick="myfunc()"
+    >
+      Calculate
+    </button>
+    <h4 id="my" style="color: rgb(238, 249, 245)"></h4>
+    <script>
+      function myfunc() {
+        var a = prompt("Enter the full name of month = ");
+        var z = 0;
+        if (typeof a == !"string") {
+          z = "Invalid Month";
+        } else {
+          var b = a.toUpperCase();
+          if (
+            b == "JANUARY" ||
+            b == "MARCH" ||
+            b == "MAY" ||
+            b == "JULY" ||
+            b == "AUGUST" ||
+            b == "OCTOBER" ||
+            b == "DECEMBER"
+          ) {
+            z = 31;
+          } else if (
+            b == "APRIL" ||
+            b == "JUNE" ||
+            b == "SEPTEMBER" ||
+            b == "NOVEMBER"
+          ) {
+            z = 30;
+          } else if (b == "February") {
+            z = "28 in a Common Year and 29 in a Leap Year";
+          } else {
+            z = "Invalid Month";
+          }
+        }
+        var show = document.getElementById("my");
+        show.innerHTML =
+          "<h4>Total Number of Days in " +
+          b +
+          " are " +
+          "<span class='hello'>" +
+          z +
+          "</span>";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <div
+      class="fg"
+      style="
+        background-color: rgb(7, 15, 43);
+        height: 530px;
+        width: 410px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+    >
+      <h1 style="color: white; margin-left: 38%; padding-top: 40px">Sign In</h1>
+      <form style="padding-left: 65px; padding-top: 50px">
+        <label for="email" style="color: white; font-size: medium"
+          >Email: </label
+        ><br />
+        <input
+          style="width: 270px; height: 25px"
+          type="email"
+          name="email"
+          id="email"
+        />
+        <span id="emailError" class="error"></span>><br /><br /><br />
+        <label for="password" style="color: white; font-size: medium"
+          >Password: </label
+        ><br />
+        <input
+          style="width: 270px; height: 25px"
+          type="password"
+          name="password"
+          id="password"
+        /><span id="passwordError" class="error"></span>
+      </form>
+      <br /><br /><br />
+      <div style="padding-left: 60px">
+        <button
+          onclick="goToPage2()"
+          style="
+            height: 40px;
+            width: 120px;
+            font-style: normal;
+            background-color: white;
+            border-radius: 30px;
+            color: rgb(7, 15, 43);
+            font-size: medium;
+          "
+        >
+          <b>Sign Up</b>
+        </button>
+        <button
+          style="
+            height: 40px;
+            width: 120px;
+            font-style: normal;
+            background-color: white;
+            border-radius: 30px;
+            color: rgb(7, 15, 43);
+            font-size: medium;
+            margin-left: 40px;
+          "
+        >
+          <b onclick="SignINValidate()">Sign In</b>
+        </button>
+      </div>
+    </div>
+    <script>
+      function goToPage2() {
+        window.location.href = "Task2_1.html";
+      }
+      function SignINValidate() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        passwordError.textContent = "";
+        emailError.textContent = "";
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email.length == 0 && password.length == 0) {
+          alert("Please give Input to the form");
+          return false;
+        }
+        if (!emailPattern.test(email)) {
+          alert("Wrong email address");
+          return false;
+          if (password.length < 8) {
+            alert("Password is Wrong");
+            return false;
+          }
+        }
+
+        alert("Sign In Successfully");
+        return true;
+      }
+    </script>
+  </body>
+</html>
